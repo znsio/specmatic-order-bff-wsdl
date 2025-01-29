@@ -21,7 +21,8 @@ class SoapRequestDeserializer<T>(private val targetClass: Class<T>) : JsonDeseri
     @Throws(IOException::class)
     override fun deserialize(p: JsonParser, ctxt: DeserializationContext): T? {
         val xmlContent = p.readValueAsTree<JsonNode>()
-        val soapSubject = xmlContent.elements().next().elements().asSequence().first()
+        val bodyNode = xmlContent.get("Body")
+        val soapSubject = bodyNode?.elements()?.asSequence()?.first()
 
         return objectMapper.treeToValue(soapSubject, targetClass)
     }

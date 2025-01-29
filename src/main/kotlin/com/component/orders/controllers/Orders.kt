@@ -4,6 +4,7 @@ import com.component.orders.models.OrderRequest
 import com.component.orders.models.OrderResponse
 import com.component.orders.models.SoapResponse
 import com.component.orders.services.OrderBFFService
+import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class Orders(@Autowired val orderBFFService: OrderBFFService) {
     @PostMapping("/orders", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun createOrder(@RequestBody orderRequest: OrderRequest): ResponseEntity<String> {
+    fun createOrder(@Valid @RequestBody orderRequest: OrderRequest): ResponseEntity<String> {
         val orderResponse = orderBFFService.createOrder(orderRequest)
         val soapResponse = SoapResponse()
         val soapMessage = soapResponse.createSoapResponse(orderResponse)

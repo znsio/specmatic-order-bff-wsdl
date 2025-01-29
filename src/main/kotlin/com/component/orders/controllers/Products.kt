@@ -43,7 +43,7 @@ class Products(@Autowired val orderBFFService: OrderBFFService) {
     }
 
     @PostMapping("/products", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun createProduct(@RequestBody newProduct: NewProduct): ResponseEntity<String> {
+    fun createProduct(@Valid @RequestBody newProduct: NewProduct): ResponseEntity<String> {
         val productResponse = orderBFFService.createProduct(newProduct)
         val soapMessage = soapResponse.createSoapResponse(productResponse)
         val soapMessageString = soapResponse.mapSoapResponseToString(soapMessage)
