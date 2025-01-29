@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.component.orders.ApiTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-01-03T07:23:50" hostname="Samys-MacBook-Air.local" time="0.001">
+  <properties/>
+  <testcase name="initializationError" classname="com.component.orders.ApiTests" time="0.001">
+    <failure message="java.lang.NoSuchMethodError: 'io.ktor.server.engine.ApplicationEngine io.ktor.server.engine.EmbeddedServerKt.embeddedServer$default(io.ktor.server.engine.ApplicationEngineFactory, int, java.lang.String, java.util.List, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, int, java.lang.Object)'" type="java.lang.NoSuchMethodError">java.lang.NoSuchMethodError: 'io.ktor.server.engine.ApplicationEngine io.ktor.server.engine.EmbeddedServerKt.embeddedServer$default(io.ktor.server.engine.ApplicationEngineFactory, int, java.lang.String, java.util.List, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, int, java.lang.Object)'
+	at io.specmatic.kafka.mock.api.ApiServer.&lt;init&gt;(obfuscation:33)
+	at io.specmatic.kafka.mock.KafkaMock.startApiServer(obfuscation:229)
+	at io.specmatic.kafka.mock.KafkaMock.start(obfuscation:66)
+	at io.specmatic.kafka.mock.KafkaMock.start(obfuscation:61)
+	at io.specmatic.kafka.mock.KafkaMock.start$default(obfuscation:60)
+	at io.specmatic.kafka.mock.KafkaMock$Companion.startInMemoryBroker(obfuscation:664)
+	at io.specmatic.kafka.mock.KafkaMock$Companion.startInMemoryBroker$default(obfuscation:662)
+	at com.component.orders.ApiTests$Companion.setUp(ApiTests.kt:32)
+	at com.component.orders.ApiTests.setUp(ApiTests.kt)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	Suppressed: kotlin.UninitializedPropertyAccessException: lateinit property kafkaMock has not been initialized
+		at com.component.orders.ApiTests$Companion.tearDown(ApiTests.kt:42)
+		at com.component.orders.ApiTests.tearDown(ApiTests.kt)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+		at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1092)
+		... 1 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[Loading config file /Users/samy/Desktop/Projects/specmatic-order-bff-java/build/resources/test/specmatic.yaml
+Looking for a contract repo checkout at: /Users/samy/Desktop/Projects/specmatic-order-bff-java/.specmatic/repos/specmatic-order-contracts
+Contract repo exists, is clean, and is up to date with remote.
+Loading .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/openapi/api_order_v3.yaml
+API Specification Summary: .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/openapi/api_order_v3.yaml
+  OpenAPI Version: 3.0.1
+  API Paths: 5, API Operations: 11
+  Schema components: 12, Security Schemes: [apiKey]
+
+
+Loading .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/asyncapi/kafka.yaml
+Ignoring .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/asyncapi/kafka.yaml as it is not an OpenAPI specification
+Loading config file /Users/samy/Desktop/Projects/specmatic-order-bff-java/build/resources/test/specmatic.yaml
+Looking for a contract repo checkout at: /Users/samy/Desktop/Projects/specmatic-order-bff-java/.specmatic/repos/specmatic-order-contracts
+Contract repo exists, is clean, and is up to date with remote.
+Ignoring .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/openapi/api_order_v3.yaml as it is not an async api spec
+Free port found: 58784 for ZooKeeper
+Saving Stub Usage Report json to ./build/reports/specmatic ...
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
