@@ -47,6 +47,6 @@ class Products(@Autowired val orderBFFService: OrderBFFService) {
         val productResponse = orderBFFService.createProduct(newProduct)
         val soapMessage = soapResponse.createSoapResponse(productResponse)
         val soapMessageString = soapResponse.mapSoapResponseToString(soapMessage)
-        return ResponseEntity(soapMessageString, HttpHeaders().apply { add("Content-Type", "application/soap+xml") }, HttpStatus.CREATED)
+        return ResponseEntity(soapMessageString, HttpHeaders().apply { add("Content-Type", "application/soap+xml") }, HttpStatus.OK)
     }
 }

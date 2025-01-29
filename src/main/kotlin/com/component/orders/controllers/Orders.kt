@@ -22,6 +22,6 @@ class Orders(@Autowired val orderBFFService: OrderBFFService) {
         val soapResponse = SoapResponse()
         val soapMessage = soapResponse.createSoapResponse(orderResponse)
         val soapMessageString = soapResponse.mapSoapResponseToString(soapMessage)
-        return ResponseEntity(soapMessageString, HttpHeaders().apply { add("Content-Type", "application/soap+xml") }, HttpStatus.CREATED)
+        return ResponseEntity(soapMessageString, HttpHeaders().apply { add("Content-Type", "application/soap+xml") }, HttpStatus.OK)
     }
 }
