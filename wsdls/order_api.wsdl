@@ -29,6 +29,7 @@
 
             <!-- Define the Id element -->
             <xsd:element name="Id" type="tns:Id"/>
+            <xsd:element name="OrderId" type="tns:Id"/>
 
             <!-- Define the Order complex type -->
             <xsd:complexType name="Order">
@@ -118,7 +119,7 @@
     </message>
 
     <message name="CreatedOrderIdMessage">
-        <part name="OrderId" element="tns:Id"/>
+        <part name="OrderId" element="tns:OrderId"/>
     </message>
 
     <message name="CreatedProductIdMessage">

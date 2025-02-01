@@ -22,7 +22,7 @@ class OrderService {
 
     fun createOrder(orderRequest: OrderRequest): Int {
         val downstreamOrderRequest = com.example.orders.CreateOrder()
-        downstreamOrderRequest.productid = orderRequest.count ?: 1
+        downstreamOrderRequest.count = orderRequest.count ?: 1
         downstreamOrderRequest.productid = orderRequest.productid ?: throw Exception("Product id not supplied in order request")
 
         val orderServicePort = orderService.getOrderAPIPort()

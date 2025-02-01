@@ -26,7 +26,12 @@ class ContractTests : SpecmaticContractTest {
             System.setProperty("port", APPLICATION_PORT)
             System.setProperty("endpointsAPI", ACTUATOR_MAPPINGS_ENDPOINT)
 
-            httpStub = createStub(listOf("test/resources/domain_service"), HTTP_STUB_HOST, HTTP_STUB_PORT)
+//            httpStub = createStub(HTTP_STUB_HOST, HTTP_STUB_PORT)
+
+            httpStub = createStub(
+                host = HTTP_STUB_HOST,
+                port = HTTP_STUB_PORT,
+                strict = true)
         }
 
         @JvmStatic
