@@ -30,3 +30,4 @@ build
 .specmatic
 .idea
 .DS_Store
+kafka-logs
