@@ -21,17 +21,9 @@ import java.lang.IllegalStateException
 import java.util.*
 
 @Service
-class OrderService(private val jacksonObjectMapper: ObjectMapper) {
-    private val authToken = "API-TOKEN-SPEC"
-
+class OrderService {
     @Value("\${order.api}")
     lateinit var orderAPIUrl: String
-
-    @Value("\${kafka.bootstrap-servers}")
-    lateinit var kafkaBootstrapServers: String
-
-    @Value("\${kafka.topic}")
-    lateinit var kafkaTopic: String
 
     fun createOrder(orderRequest: OrderRequest): Int {
         val apiUrl = orderAPIUrl + "/" + API.CREATE_ORDER.url
@@ -98,14 +90,5 @@ class OrderService(private val jacksonObjectMapper: ObjectMapper) {
         }
 
         return products.take(1)
-    }
-
-    private fun getKafkaProducer(): KafkaProducer<String, String> {
-        val props = Properties()
-        println("kafkaBootstrapServers: $kafkaBootstrapServers")
-        props["bootstrap.servers"] = kafkaBootstrapServers
-        props["key.serializer"] = "org.apache.kafka.common.serialization.StringSerializer"
-        props["value.serializer"] = "org.apache.kafka.common.serialization.StringSerializer"
-        return KafkaProducer<String, String>(props)
     }
 }
