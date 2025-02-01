@@ -29,3 +29,4 @@ build
 .gradle
 .specmatic
 .idea
+.DS_Store
