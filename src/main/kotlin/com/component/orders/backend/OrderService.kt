@@ -4,43 +4,37 @@ import com.component.orders.models.*
 import com.component.orders.models.messages.FindAvailableProductsRequest
 import com.component.orders.models.messages.FindAvailableProductsResponse
 import com.component.orders.models.messages.ProductListWrapper
-import com.component.orders.models.messages.ProductMessage
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.apache.kafka.clients.producer.KafkaProducer
-import org.apache.kafka.clients.producer.ProducerRecord
+import com.example.orders.OrderAPIService
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.http.HttpEntity
-import org.springframework.http.HttpHeaders
-import org.springframework.http.MediaType
-import org.springframework.http.client.SimpleClientHttpRequestFactory
 import org.springframework.oxm.jaxb.Jaxb2Marshaller
 import org.springframework.stereotype.Service
-import org.springframework.web.client.RestTemplate
 import org.springframework.ws.client.core.WebServiceTemplate
-import java.lang.IllegalStateException
-import java.util.*
+import java.io.File
 
 @Service
 class OrderService {
     @Value("\${order.api}")
     lateinit var orderAPIUrl: String
 
+    var orderService: OrderAPIService =
+        OrderAPIService(
+            File("wsdls/order_api.wsdl").canonicalFile.toURI().toURL())
+
     fun createOrder(orderRequest: OrderRequest): Int {
-        val apiUrl = orderAPIUrl + "/" + API.CREATE_ORDER.url
+        val downstreamOrderRequest = com.example.orders.CreateOrder()
+        downstreamOrderRequest.productid = orderRequest.count ?: 1
+        downstreamOrderRequest.productid = orderRequest.productid ?: throw Exception("Product id not supplied in order request")
 
-        val marshaller = Jaxb2Marshaller().apply {
-            setClassesToBeBound(Order::class.java, Id::class.java)
+        val orderServicePort = orderService.getOrderAPIPort()
+
+        try {
+            val orderResponse = orderServicePort.createOrder(downstreamOrderRequest)
+            return orderResponse.id
+        } catch(e: Throwable) {
+            println(e.message ?: e.localizedMessage)
+            e.printStackTrace()
+            throw e
         }
-
-        val webServiceTemplate = WebServiceTemplate(marshaller).apply {
-            setMarshaller(marshaller)
-            unmarshaller = marshaller
-        }
-
-        val request = Order(orderRequest.productid, orderRequest.count, "pending")
-        val response = webServiceTemplate.marshalSendAndReceive(apiUrl, request) as Id
-
-        return response.id
     }
 
     fun findProducts(type: String): List<Product> {

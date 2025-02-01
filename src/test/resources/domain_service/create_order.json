@@ -1,0 +1,18 @@
+{
+  "http-request": {
+    "method": "POST",
+    "path": "/orders",
+    "headers": {
+      "SOAPAction": "/orders/createOrder",
+      "Content-Type": "application/xml"
+    },
+    "body": "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\"><S:Body><ns0:CreateOrder xmlns:ns0=\"http://www.example.com/orders\"><productid>792</productid><count>0</count></ns0:CreateOrder></S:Body></S:Envelope>"
+  },
+  "http-response": {
+    "status": 200,
+    "headers": {
+        "Content-Type": "application/xml"
+    },
+    "body": "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\"><SOAP-ENV:Header/><SOAP-ENV:Body><OrderResponse><id>10</id></OrderResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+  }
+}

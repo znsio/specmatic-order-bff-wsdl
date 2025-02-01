@@ -6,14 +6,30 @@ plugins {
     id 'org.springframework.boot' version '3.4.0'
     id 'org.jetbrains.kotlin.plugin.spring' version '1.9.23'
     id 'jacoco'
+    id("com.github.bjornvester.wsdl2java") version "2.0.2"
 }
 
 repositories {
     mavenLocal()
     maven {
-        url uri("lib")
+        url = uri("lib")
     }
     mavenCentral()
+}
+
+wsdl2java {
+    cxfVersion.set("4.0.2")
+
+    wsdlDir.set(layout.projectDirectory.dir("wsdls"))
+    includes.set(
+        [
+            "order_api.wsdl",
+        ]
+    )
+
+    generatedSourceDir.set(layout.projectDirectory.dir("src/generated/wsdl2java"))
+
+    verbose = true
 }
 
 tasks.withType(KotlinCompile).configureEach {
@@ -55,6 +71,11 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-api:5.10.1'
     )
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.0'
+
+    // https://mvnrepository.com/artifact/org.glassfish.hk2/osgi-resource-locator
+    implementation group: 'org.glassfish.hk2', name: 'osgi-resource-locator', version: '2.4.0'
+
+    implementation 'com.sun.xml.ws:jaxws-ri:4.0.1'
 }
 
 sourceSets {

@@ -1,0 +1,10 @@
+sources:
+  - type: filesystem
+    consumes:
+      - wsdls/order_api.wsdl
+    provides:
+      - wsdls/product_bff_search.wsdl
+
+test:
+  resiliencyTests:
+    enable: all
