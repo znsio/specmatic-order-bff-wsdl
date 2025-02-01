@@ -1,11 +1,11 @@
 sources:
-  - provider: git
+  - type: git
     repository: https://github.com/znsio/specmatic-order-contracts.git
-    branch: added_wsdl_contracts
-    provides:
-      - io/specmatic/examples/store/wsdl/product_search_bff.wsdl
     consumes:
-      - io/specmatic/examples/store/openapi/api_order.wsdl
+      - io/specmatic/examples/store/wsdl/order_api.wsdl
+  - type: filesystem
+    provides:
+      - wsdls/product_bff_search.wsdl
 
 examples:
   - "src/test/resources/bff"

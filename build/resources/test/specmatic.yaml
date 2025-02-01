@@ -1,11 +1,11 @@
 sources:
-  - provider: git
+  - type: git
     repository: https://github.com/znsio/specmatic-order-contracts.git
-    provides:
-      - io/specmatic/examples/store/openapi/product_search_bff_v4.yaml
     consumes:
-      - io/specmatic/examples/store/openapi/api_order_v3.yaml
-      - io/specmatic/examples/store/asyncapi/kafka.yaml
+      - io/specmatic/examples/store/wsdl/order_api.wsdl
+  - type: filesystem
+    provides:
+      - wsdls/product_bff_search.wsdl
 
 examples:
   - "src/test/resources/bff"

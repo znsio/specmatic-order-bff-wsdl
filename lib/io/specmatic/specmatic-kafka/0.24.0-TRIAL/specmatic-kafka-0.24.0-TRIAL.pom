@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.specmatic</groupId>
   <artifactId>specmatic-kafka</artifactId>
-  <version>0.22.9-TRIAL</version>
+  <version>0.24.0-TRIAL</version>
   <name>Specmatic Kafka</name>
   <description>Specmatic Smart-Mock for Kafka</description>
   <url>https://specmatic.io</url>
@@ -59,7 +59,7 @@
     <dependency>
       <groupId>com.asyncapi</groupId>
       <artifactId>asyncapi-core</artifactId>
-      <version>1.0.0-EAP-3</version>
+      <version>1.0.0-RC2</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -77,7 +77,7 @@
     <dependency>
       <groupId>io.specmatic</groupId>
       <artifactId>specmatic-core</artifactId>
-      <version>2.0.4</version>
+      <version>2.2.0</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -113,7 +113,7 @@
     <dependency>
       <groupId>org.jetbrains.kotlinx</groupId>
       <artifactId>kotlinx-serialization-json-jvm</artifactId>
-      <version>1.6.3</version>
+      <version>1.6.1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>

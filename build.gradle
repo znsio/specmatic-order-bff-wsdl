@@ -49,7 +49,7 @@ dependencies {
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testApi "io.specmatic:junit5-support:${specmatic_version}"
-    testImplementation('io.specmatic:specmatic-kafka:0.22.9-TRIAL')
+    testImplementation('io.specmatic:specmatic-kafka:0.24.0-TRIAL')
     testImplementation(
             'org.assertj:assertj-core:3.24.2',
             'org.junit.jupiter:junit-jupiter-api:5.10.1'

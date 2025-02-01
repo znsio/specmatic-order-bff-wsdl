@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">5</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">5</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0s</div>
+<div class="counter">0.390s</div>
 <p>duration</p>
 </div>
 </td>
@@ -69,32 +69,91 @@
 <li>
 <a href="#tab2">Standard output</a>
 </li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
 <div class="test">
-<a name="initializationError"></a>
-<h3 class="failures">initializationError</h3>
+<a name="contractTest()[1]"></a>
+<h3 class="failures"> Scenario: POST /orders -&gt; 200</h3>
 <span class="code">
-<pre>java.lang.NoSuchMethodError: 'io.ktor.server.engine.ApplicationEngine io.ktor.server.engine.EmbeddedServerKt.embeddedServer$default(io.ktor.server.engine.ApplicationEngineFactory, int, java.lang.String, java.util.List, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, int, java.lang.Object)'
-	at io.specmatic.kafka.mock.api.ApiServer.&lt;init&gt;(obfuscation:33)
-	at io.specmatic.kafka.mock.KafkaMock.startApiServer(obfuscation:229)
-	at io.specmatic.kafka.mock.KafkaMock.start(obfuscation:66)
-	at io.specmatic.kafka.mock.KafkaMock.start(obfuscation:61)
-	at io.specmatic.kafka.mock.KafkaMock.start$default(obfuscation:60)
-	at io.specmatic.kafka.mock.KafkaMock$Companion.startInMemoryBroker(obfuscation:664)
-	at io.specmatic.kafka.mock.KafkaMock$Companion.startInMemoryBroker$default(obfuscation:662)
-	at com.component.orders.contract.ContractTests$Companion.setUp(ContractTests.kt:40)
-	at com.component.orders.contract.ContractTests.setUp(ContractTests.kt)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+<pre>java.lang.AssertionError: Testing scenario &quot;createOrder&quot;
+API: POST /orders -&gt; 200
+
+  &gt;&gt; RESPONSE.STATUS
+  
+     Expected status 200, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:369)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	Suppressed: kotlin.UninitializedPropertyAccessException: lateinit property kafkaMock has not been initialized
-		at com.component.orders.contract.ContractTests$Companion.tearDown(ContractTests.kt:50)
-		at com.component.orders.contract.ContractTests.tearDown(ContractTests.kt)
-		at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-		at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1092)
-		... 1 more
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="contractTest()[2]"></a>
+<h3 class="failures"> Scenario: POST /orders -&gt; 200</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Testing scenario &quot;createOrder&quot;
+API: POST /orders -&gt; 200
+
+  &gt;&gt; RESPONSE.STATUS
+  
+     Expected status 200, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:369)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="contractTest()[3]"></a>
+<h3 class="failures"> Scenario: POST /orders -&gt; 200</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Testing scenario &quot;createOrder&quot;
+API: POST /orders -&gt; 200
+
+  &gt;&gt; RESPONSE.STATUS
+  
+     Expected status 200, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:369)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="contractTest()[4]"></a>
+<h3 class="failures"> Scenario: POST /orders -&gt; 200</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Testing scenario &quot;createOrder&quot;
+API: POST /orders -&gt; 200
+
+  &gt;&gt; RESPONSE.STATUS
+  
+     Expected status 200, actual was status 400
+	at io.specmatic.test.SpecmaticJUnitSupport$dynamicTestStream$1.invoke$lambda$1(SpecmaticJUnitSupport.kt:369)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="executionError"></a>
+<h3 class="failures">executionError</h3>
+<span class="code">
+<pre>org.opentest4j.AssertionFailedError: One or more API Coverage report's success criteria were not met.
+	at app//io.specmatic.test.reports.OpenApiCoverageReportProcessor.assertSuccessCriteria(OpenApiCoverageReportProcessor.kt:93)
+	at app//io.specmatic.test.reports.OpenApiCoverageReportProcessor.process(OpenApiCoverageReportProcessor.kt:39)
+	at app//io.specmatic.test.SpecmaticJUnitSupport$Companion.report(SpecmaticJUnitSupport.kt:94)
+	at app//io.specmatic.test.AfterSpecmaticContractTestExecutionCallback.afterTestExecution(SpecmaticContractTest.kt:22)
+	at java.base@17.0.13/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.13/java.util.ArrayList.forEach(ArrayList.java:1511)
 </pre>
 </span>
 </div>
@@ -105,12 +164,38 @@
 <thead>
 <tr>
 <th>Test</th>
+<th>Method name</th>
 <th>Duration</th>
 <th>Result</th>
 </tr>
 </thead>
 <tr>
-<td class="failures">initializationError</td>
+<td class="failures"> Scenario: POST /orders -&gt; 200</td>
+<td class="failures">contractTest()[1]</td>
+<td class="failures">0.341s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures"> Scenario: POST /orders -&gt; 200</td>
+<td class="failures">contractTest()[2]</td>
+<td class="failures">0.018s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures"> Scenario: POST /orders -&gt; 200</td>
+<td class="failures">contractTest()[3]</td>
+<td class="failures">0.016s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures"> Scenario: POST /orders -&gt; 200</td>
+<td class="failures">contractTest()[4]</td>
+<td class="failures">0.015s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">executionError</td>
+<td class="failures">executionError</td>
 <td class="failures">0s</td>
 <td class="failures">failed</td>
 </tr>
@@ -119,30 +204,312 @@
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>Loading config file /Users/samy/Desktop/Projects/specmatic-order-bff-java/build/resources/test/specmatic.yaml
-Looking for a contract repo checkout at: /Users/samy/Desktop/Projects/specmatic-order-bff-java/.specmatic/repos/specmatic-order-contracts
+<pre>Loading config file /Users/joelrosario/Source/specmatic/sample-projects/specmatic-order-bff-wsdl/build/resources/test/specmatic.yaml
+Looking for a contract repo checkout at: /Users/joelrosario/Source/specmatic/sample-projects/specmatic-order-bff-wsdl/.specmatic/repos/specmatic-order-contracts
 Contract repo exists, is clean, and is up to date with remote.
 Loading the following contracts:
-.specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/openapi/api_order_v3.yaml
-.specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/asyncapi/kafka.yaml
+.specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/wsdl/order_api.wsdl
 
-API Specification Summary: .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/openapi/api_order_v3.yaml
-  OpenAPI Version: 3.0.1
-  API Paths: 5, API Operations: 11
-  Schema components: 12, Security Schemes: [apiKey]
-
-
-Ignoring .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/asyncapi/kafka.yaml as it does not have a recognized specification extension
   Loading stub expectations from ./src/test/resources/domain_service
   Reading the following stub files:
     ./src/test/resources/domain_service/stub_products_200.json
     ./src/test/resources/domain_service/stub_timeout.json
-Loading config file /Users/samy/Desktop/Projects/specmatic-order-bff-java/build/resources/test/specmatic.yaml
-Looking for a contract repo checkout at: /Users/samy/Desktop/Projects/specmatic-order-bff-java/.specmatic/repos/specmatic-order-contracts
+  ./src/test/resources/domain_service/stub_products_200.json didn't match any of the contracts
+    No matching REST stub or contract found for method GET and path /products
+  ./src/test/resources/domain_service/stub_timeout.json didn't match any of the contracts
+    No matching REST stub or contract found for method GET and path /products
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.0)
+
+Loading config file /Users/joelrosario/Source/specmatic/sample-projects/specmatic-order-bff-wsdl/build/resources/test/specmatic.yaml
+Looking for a contract repo checkout at: /Users/joelrosario/Source/specmatic/sample-projects/specmatic-order-bff-wsdl/.specmatic/repos/specmatic-order-contracts
 Contract repo exists, is clean, and is up to date with remote.
-Ignoring .specmatic/repos/specmatic-order-contracts/io/specmatic/examples/store/openapi/api_order_v3.yaml as it is not an async api spec
-Free port found: 58812 for ZooKeeper
+
+
+--------------------
+  Request at 2025-2-1 0:36:38.20
+    POST //orders
+    Accept-Encoding: gzip
+    Accept: text/xml, text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+    SOAPAction: &quot;&quot;
+    Content-Type: text/xml; charset=utf-8
+    Cache-Control: no-cache
+    Pragma: no-cache
+    User-Agent: Java/17.0.13
+    Host: localhost:8090
+    Connection: keep-alive
+    Content-Length: 230
+    
+    &lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;SOAP-ENV:Header/&gt;&lt;SOAP-ENV:Body&gt;&lt;order&gt;&lt;productid&gt;462&lt;/productid&gt;&lt;count&gt;145&lt;/count&gt;&lt;status&gt;pending&lt;/status&gt;&lt;/order&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.25
+    400 Bad Request
+    Content-Type: text/plain
+    X-Specmatic-Result: failure
+    X-Specmatic-Empty: true
+    
+    No matching SOAP stub or contract found for SOAPAction &quot;&quot; and path //orders
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-2-1 0:36:38.52
+    POST /orders
+    SOAPAction: &quot;http://www.example.com/orders/createOrder&quot;
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: text/xml
+    
+    &lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;OrderRequest&gt;&lt;productid&gt;462&lt;/productid&gt;&lt;count&gt;145&lt;/count&gt;&lt;/OrderRequest&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.52
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Sat, 01 Feb 2025 07:06:38 GMT
+    Connection: close
+    
+    {
+        &quot;timestamp&quot;: &quot;2025-02-01T12:36:38.035352&quot;,
+        &quot;status&quot;: 400,
+        &quot;error&quot;: &quot;An error occurred while processing the request&quot;,
+        &quot;message&quot;: &quot;Bad Request [400]&quot;
+    }
+
+ Scenario: POST /orders -&gt; 200 has FAILED
+Reason: Testing scenario &quot;createOrder&quot;
+	API: POST /orders -&gt; 200
+	
+	  &gt;&gt; RESPONSE.STATUS
+	  
+	     Expected status 200, actual was status 400
+
+
+
+--------------------
+  Request at 2025-2-1 0:36:38.93
+    POST //orders
+    Accept-Encoding: gzip
+    Accept: text/xml, text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+    SOAPAction: &quot;&quot;
+    Content-Type: text/xml; charset=utf-8
+    Cache-Control: no-cache
+    Pragma: no-cache
+    User-Agent: Java/17.0.13
+    Host: localhost:8090
+    Connection: keep-alive
+    Content-Length: 230
+    
+    &lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;SOAP-ENV:Header/&gt;&lt;SOAP-ENV:Body&gt;&lt;order&gt;&lt;productid&gt;327&lt;/productid&gt;&lt;count&gt;881&lt;/count&gt;&lt;status&gt;pending&lt;/status&gt;&lt;/order&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.94
+    400 Bad Request
+    Content-Type: text/plain
+    X-Specmatic-Result: failure
+    X-Specmatic-Empty: true
+    
+    No matching SOAP stub or contract found for SOAPAction &quot;&quot; and path //orders
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-2-1 0:36:38.98
+    POST /orders
+    SOAPAction: http://www.example.com/orders/createOrder
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: text/xml
+    
+    &lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;OrderRequest&gt;&lt;productid&gt;327&lt;/productid&gt;&lt;count&gt;881&lt;/count&gt;&lt;/OrderRequest&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.98
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Sat, 01 Feb 2025 07:06:38 GMT
+    Connection: close
+    
+    {
+        &quot;timestamp&quot;: &quot;2025-02-01T12:36:38.095974&quot;,
+        &quot;status&quot;: 400,
+        &quot;error&quot;: &quot;An error occurred while processing the request&quot;,
+        &quot;message&quot;: &quot;Bad Request [400]&quot;
+    }
+
+ Scenario: POST /orders -&gt; 200 has FAILED
+Reason: Testing scenario &quot;createOrder&quot;
+	API: POST /orders -&gt; 200
+	
+	  &gt;&gt; RESPONSE.STATUS
+	  
+	     Expected status 200, actual was status 400
+
+
+
+--------------------
+  Request at 2025-2-1 0:36:38.109
+    POST //orders
+    Accept-Encoding: gzip
+    Accept: text/xml, text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+    SOAPAction: &quot;&quot;
+    Content-Type: text/xml; charset=utf-8
+    Cache-Control: no-cache
+    Pragma: no-cache
+    User-Agent: Java/17.0.13
+    Host: localhost:8090
+    Connection: keep-alive
+    Content-Length: 230
+    
+    &lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;SOAP-ENV:Header/&gt;&lt;SOAP-ENV:Body&gt;&lt;order&gt;&lt;productid&gt;969&lt;/productid&gt;&lt;count&gt;872&lt;/count&gt;&lt;status&gt;pending&lt;/status&gt;&lt;/order&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.111
+    400 Bad Request
+    Content-Type: text/plain
+    X-Specmatic-Result: failure
+    X-Specmatic-Empty: true
+    
+    No matching SOAP stub or contract found for SOAPAction &quot;&quot; and path //orders
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-2-1 0:36:38.114
+    POST /orders
+    SOAPAction: &quot;http://www.example.com/orders/createOrder&quot;
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: text/xml
+    
+    &lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&lt;soapenv:Body&gt;&lt;OrderRequest&gt;&lt;productid&gt;969&lt;/productid&gt;&lt;count&gt;872&lt;/count&gt;&lt;/OrderRequest&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.114
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Sat, 01 Feb 2025 07:06:38 GMT
+    Connection: close
+    
+    {
+        &quot;timestamp&quot;: &quot;2025-02-01T12:36:38.1135&quot;,
+        &quot;status&quot;: 400,
+        &quot;error&quot;: &quot;An error occurred while processing the request&quot;,
+        &quot;message&quot;: &quot;Bad Request [400]&quot;
+    }
+
+ Scenario: POST /orders -&gt; 200 has FAILED
+Reason: Testing scenario &quot;createOrder&quot;
+	API: POST /orders -&gt; 200
+	
+	  &gt;&gt; RESPONSE.STATUS
+	  
+	     Expected status 200, actual was status 400
+
+
+
+--------------------
+  Request at 2025-2-1 0:36:38.127
+    POST //orders
+    Accept-Encoding: gzip
+    Accept: text/xml, text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+    SOAPAction: &quot;&quot;
+    Content-Type: text/xml; charset=utf-8
+    Cache-Control: no-cache
+    Pragma: no-cache
+    User-Agent: Java/17.0.13
+    Host: localhost:8090
+    Connection: keep-alive
+    Content-Length: 230
+    
+    &lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;SOAP-ENV:Header/&gt;&lt;SOAP-ENV:Body&gt;&lt;order&gt;&lt;productid&gt;715&lt;/productid&gt;&lt;count&gt;671&lt;/count&gt;&lt;status&gt;pending&lt;/status&gt;&lt;/order&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.128
+    400 Bad Request
+    Content-Type: text/plain
+    X-Specmatic-Result: failure
+    X-Specmatic-Empty: true
+    
+    No matching SOAP stub or contract found for SOAPAction &quot;&quot; and path //orders
+
+
+--------------------
+  Request to http://localhost:8080 at 2025-2-1 0:36:38.130
+    POST /orders
+    SOAPAction: http://www.example.com/orders/createOrder
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: text/xml
+    
+    &lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&lt;soapenv:Body&gt;&lt;OrderRequest&gt;&lt;productid&gt;715&lt;/productid&gt;&lt;count&gt;671&lt;/count&gt;&lt;/OrderRequest&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;
+
+  Response at 2025-2-1 0:36:38.131
+    400 Bad Request
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Date: Sat, 01 Feb 2025 07:06:38 GMT
+    Connection: close
+    
+    {
+        &quot;timestamp&quot;: &quot;2025-02-01T12:36:38.129648&quot;,
+        &quot;status&quot;: 400,
+        &quot;error&quot;: &quot;An error occurred while processing the request&quot;,
+        &quot;message&quot;: &quot;Bad Request [400]&quot;
+    }
+
+ Scenario: POST /orders -&gt; 200 has FAILED
+Reason: Testing scenario &quot;createOrder&quot;
+	API: POST /orders -&gt; 200
+	
+	  &gt;&gt; RESPONSE.STATUS
+	  
+	     Expected status 200, actual was status 400
+
+
+Generating HTML report...
+Successfully generated HTML report in ./build/reports/specmatic/html
+
+|--------------------------------------------------------------------------------------|
+| SPECMATIC API COVERAGE SUMMARY                                                       |
+|--------------------------------------------------------------------------------------|
+| coverage | path                   | method | response | #exercised | result          |
+|----------|------------------------|--------|----------|------------|-----------------|
+| 50%      | /orders                | POST   | 400      | 0          | missing in spec |
+|          |                        |        | 200      | 4          | covered         |
+| 0%       | /products              | POST   | 0        | 0          | missing in spec |
+| 0%       | /findAvailableProducts | GET    | 0        | 0          | missing in spec |
+|--------------------------------------------------------------------------------------|
+| 25% API Coverage reported from 3 Paths                                               |
+|--------------------------------------------------------------------------------------|
+
+2 paths found in the app are not documented in the spec.
+1 path found in the app is partially documented in the spec.
+
+Saving Open API Coverage Report json to ./build/reports/specmatic ...
+
+Failed the following API Coverage Report success criteria:
+Total API coverage: 25% is less than the specified minimum threshold of 70%.
+Total missed endpoints count: 2 is greater than the maximum threshold of 0.
+(Note: Specmatic will consider an endpoint as 'covered' only if it is documented in the open api spec with at least one example for each operation and response code.
+If it is present in the spec, but does not have an example, Specmatic will still report the particular operation and response code as 'missing in spec'.)
+
 Saving Stub Usage Report json to ./build/reports/specmatic ...
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Feb 01, 2025 12:36:35 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Tomcat]
+Feb 01, 2025 12:36:35 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet engine: [Apache Tomcat/10.1.33]
+Feb 01, 2025 12:36:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring embedded WebApplicationContext
+Feb 01, 2025 12:36:37 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring DispatcherServlet 'dispatcherServlet'
 </pre>
 </span>
 </div>
@@ -154,7 +521,7 @@ Saving Stub Usage Report json to ./build/reports/specmatic ...
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.9</a> at 03-Jan-2025, 12:53:57 pm</p>
+<a href="http://www.gradle.org">Gradle 8.9</a> at Feb 1, 2025, 12:36:43 PM</p>
 </div>
 </div>
 </body>
