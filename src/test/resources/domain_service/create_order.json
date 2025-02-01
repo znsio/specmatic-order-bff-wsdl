@@ -6,7 +6,7 @@
       "SOAPAction": "/orders/createOrder",
       "Content-Type": "application/xml"
     },
-    "body": "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\"><S:Body><ns0:CreateOrder xmlns:ns0=\"http://www.example.com/orders\"><productid>792</productid><count>0</count></ns0:CreateOrder></S:Body></S:Envelope>"
+    "body": "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\"><S:Body><ns0:CreateOrder xmlns:ns0=\"http://www.example.com/orders\"><productid>123</productid><count>1</count></ns0:CreateOrder></S:Body></S:Envelope>"
   },
   "http-response": {
     "status": 200,
