@@ -88,21 +88,19 @@
             <wsdl:input message="tns:OrderRequest"/>
             <wsdl:output message="tns:OrderResponse"/>
         </wsdl:operation>
-    </wsdl:portType>
-    <wsdl:portType name="ProductServicePortType">
         <wsdl:operation name="createProduct">
             <wsdl:input message="tns:CreateProductRequest"/>
             <wsdl:output message="tns:CreateProductResponse"/>
         </wsdl:operation>
-        <wsdl:operation name="findAvailableProducts">
-            <wsdl:input message="tns:FindAvailableProductsRequest"/>
-            <wsdl:output message="tns:FindAvailableProductsResponse"/>
-        </wsdl:operation>
+<!--        <wsdl:operation name="findAvailableProducts">-->
+<!--            <wsdl:input message="tns:FindAvailableProductsRequest"/>-->
+<!--            <wsdl:output message="tns:FindAvailableProductsResponse"/>-->
+<!--        </wsdl:operation>-->
     </wsdl:portType>
     <wsdl:binding name="OrderServiceBinding" type="tns:OrderServicePortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="createOrder">
-            <soap:operation soapAction="/orders/createOrder"/>
+            <soap:operation soapAction="/createOrder"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -110,11 +108,8 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-    </wsdl:binding>
-    <wsdl:binding name="ProductServiceBinding" type="tns:ProductServicePortType">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="createProduct">
-            <soap:operation soapAction="/products/createProduct"/>
+            <soap:operation soapAction="/createProduct"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -122,24 +117,21 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="findAvailableProducts">
-            <soap:operation soapAction="/products/findAvailableProducts"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
+<!--        <wsdl:operation name="findAvailableProducts">-->
+<!--            <soap:operation soapAction="/findAvailableProducts"/>-->
+<!--            <wsdl:input>-->
+<!--                <soap:body use="literal"/>-->
+<!--            </wsdl:input>-->
+<!--            <wsdl:output>-->
+<!--                <soap:body use="literal"/>-->
+<!--            </wsdl:output>-->
+<!--        </wsdl:operation>-->
     </wsdl:binding>
 
     <!-- Service Definitions -->
     <wsdl:service name="OrderService">
         <wsdl:port name="OrderServicePort" binding="tns:OrderServiceBinding">
-            <soap:address location="http://localhost:8080/orders"/>
-        </wsdl:port>
-         <wsdl:port name="ProductServicePort" binding="tns:ProductServiceBinding">
-            <soap:address location="http://localhost:8080/products"/>
+            <soap:address location="http://localhost:8080/ws"/>
         </wsdl:port>
     </wsdl:service>
 
