@@ -2,8 +2,8 @@
 
 ## Stub out the downstream dependency
 
-```
-specmatic stub
+```shell
+docker run -v "$(pwd)/wsdls/order_api.wsdl:/order_api.wsdl" -v "$(pwd)/wsdls/order_api_examples:/order_api_examples" -p 8090:9000 znsio/specmatic stub "/order_api.wsdl"
 ```
 
 ## Hit the downstream dependency stub from SOAPUI
