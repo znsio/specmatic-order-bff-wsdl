@@ -45,7 +45,7 @@ jacocoTestReport {
     }
 }
 
-def specmatic_version = "2.14.2-SNAPSHOT"
+def specmatic_version = "2.14.2"
 
 dependencies {
     implementation platform('org.springframework.boot:spring-boot-dependencies:3.4.0')

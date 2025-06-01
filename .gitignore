@@ -31,6 +31,5 @@ build
 .idea
 .DS_Store
 kafka-logs
-
 src/generated
-
+.java-version
