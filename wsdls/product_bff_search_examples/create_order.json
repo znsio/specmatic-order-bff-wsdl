@@ -1,14 +1,18 @@
 {
   "http-request": {
     "method": "POST",
-    "path": "/orders",
+    "path": "/ws",
     "headers": {
-      "SOAPAction": "/orders/createOrder"
+      "Content-Type": "text/xml",
+      "SOAPAction": "/createOrder"
     },
-    "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soapenv:Header/><soapenv:Body><OrderRequest><productid>123</productid><count>1</count></OrderRequest></soapenv:Body></soapenv:Envelope>"
+    "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns=\"http://www.example.com/orders\"><soapenv:Body><OrderRequest><productid>688</productid><count>126</count></OrderRequest></soapenv:Body></soapenv:Envelope>"
   },
   "http-response": {
     "status": 200,
-    "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soapenv:Header/><soapenv:Body><OrderResponse><id>10</id></OrderResponse></soapenv:Body></soapenv:Envelope>"
+    "headers": {
+      "Content-Type": "text/xml"
+    },
+    "body": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns=\"http://www.example.com/orders\"><soapenv:Body><OrderResponse><id>123</id></OrderResponse></soapenv:Body></soapenv:Envelope>"
   }
 }

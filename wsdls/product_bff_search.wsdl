@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-             xmlns:tns="http://www.example.com/orders"
-             targetNamespace="http://www.example.com/orders">
-    
-      <wsdl:types>
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://www.example.com/orders"
+    targetNamespace="http://www.example.com/orders"
+>
+    <wsdl:types>
         <xsd:schema targetNamespace="http://www.example.com/orders">
-            <!-- OrderRequest and OrderResponse -->
             <xsd:element name="OrderRequest">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="productid" type="xsd:int"/>
-                        <xsd:element name="count" type="xsd:int"/>
+                        <xsd:element name="productid" type="xsd:int" />
+                        <xsd:element name="count" type="xsd:int" />
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -20,97 +19,36 @@
             <xsd:element name="OrderResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="id" type="xsd:int"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-
-            <!-- Product -->
-            <xsd:complexType name="Product">
-                <xsd:sequence>
-                    <xsd:element name="name" type="xsd:string"/>
-                    <xsd:element name="type" type="xsd:string"/>
-                    <xsd:element name="inventory" type="xsd:int"/>
-                </xsd:sequence>
-            </xsd:complexType>
-
-            <!-- Id -->
-            <xsd:element name="Id">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="id" type="xsd:int"/>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-
-            <!-- ArrayList Wrapper -->
-            <xsd:element name="ProductList">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="products" maxOccurs="unbounded" minOccurs="0">
-                            <xsd:complexType>
-                                <xsd:sequence>
-                                    <xsd:element name="product" type="tns:Product"/>
-                                </xsd:sequence>
-                            </xsd:complexType>
-                        </xsd:element>
+                        <xsd:element name="id" type="xsd:int" />
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
         </xsd:schema>
     </wsdl:types>
-  <wsdl:message name="CreateProductRequest">
-        <wsdl:part name="newProduct" type="tns:Product"/>
-    </wsdl:message>
-    <wsdl:message name="CreateProductResponse">
-        <wsdl:part name="id" element="tns:Id"/>
-    </wsdl:message>
 
-  <wsdl:message name="OrderRequest">
-        <wsdl:part name="orderRequest" element="tns:OrderRequest"/>
+    <wsdl:message name="OrderRequest">
+        <wsdl:part name="orderRequest" element="tns:OrderRequest" />
     </wsdl:message>
     <wsdl:message name="OrderResponse">
-        <wsdl:part name="orderResponse" element="tns:OrderResponse"/>
+        <wsdl:part name="orderResponse" element="tns:OrderResponse" />
     </wsdl:message>
 
-    <wsdl:message name="FindAvailableProductsRequest">
-        <wsdl:part name="type" type="xsd:string"/>
-        <wsdl:part name="pageSize" type="xsd:int"/>
-    </wsdl:message>
-
-    <wsdl:message name="FindAvailableProductsResponse">
-        <wsdl:part name="productList" element="tns:ProductList"/>
-    </wsdl:message>
-
-
-   <wsdl:portType name="OrderServicePortType">
+    <wsdl:portType name="OrderServicePortType">
         <wsdl:operation name="createOrder">
-            <wsdl:input message="tns:OrderRequest"/>
-            <wsdl:output message="tns:OrderResponse"/>
-        </wsdl:operation>
-        <wsdl:operation name="createProduct">
-            <wsdl:input message="tns:CreateProductRequest"/>
-            <wsdl:output message="tns:CreateProductResponse"/>
+            <wsdl:input message="tns:OrderRequest" />
+            <wsdl:output message="tns:OrderResponse" />
         </wsdl:operation>
     </wsdl:portType>
+
     <wsdl:binding name="OrderServiceBinding" type="tns:OrderServicePortType">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="createOrder">
-            <soap:operation soapAction="/createOrder"/>
+            <soap:operation soapAction="/createOrder" />
             <wsdl:input>
-                <soap:body use="literal"/>
+                <soap:body use="literal" />
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal"/>
-            </wsdl:output>
-        </wsdl:operation>
-        <wsdl:operation name="createProduct">
-            <soap:operation soapAction="/createProduct"/>
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="literal"/>
+                <soap:body use="literal" />
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
@@ -118,7 +56,7 @@
     <!-- Service Definitions -->
     <wsdl:service name="OrderService">
         <wsdl:port name="OrderServicePort" binding="tns:OrderServiceBinding">
-            <soap:address location="http://localhost:8080/ws"/>
+            <soap:address location="http://localhost:8080/ws" />
         </wsdl:port>
     </wsdl:service>
 
