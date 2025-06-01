@@ -49,20 +49,16 @@
             +--------------------+
 ```
 
-## Running Contract Test and Mock
-
-### Programmatic Setup
+## Running Contract Test and Mock Programmatically
 
 Please refer to [ContractTest.kt](src/test/kotlin/com/component/orders/ContractTest.kt)
 
-Once you run the test the report should be available at `build/reports/specmatic/contractTest/index.html`.
+Once you run the test the report should be available at `build/reports/specmatic/html/index.html`.
 
-### Command Line Setup
-
-#### Mock the downstream dependency
+## Running the Specmatic WSDL Mock Server from Command Line using Docker
 
 ```shell
-docker run --net host -p "8090:9000" -v "$(pwd)/wsdls:/wsdls" -v "$(pwd)/wsdls/order_api_examples:/order_api_examples" znsio/specmatic stub "/wsdls/order_api.wsdl"
+docker run -p "8090:9000" -v "$(pwd):/usr/src/app" znsio/specmatic stub "./wsdls/order_api.wsdl"
 ```
 
 OR
@@ -100,3 +96,11 @@ And you should get a response like this:
     </soapenv:Body>
 </soapenv:Envelope>
 ```
+
+Alternatively, you can also run the same WSDL spec as a test against the mock server.
+
+```shell
+docker run --net host -v "$(pwd):/usr/src/app" znsio/specmatic test "./wsdls/order_api.wsdl" --port 8090
+```
+
+The HTML API Coverage Report will be available at `build/reports/specmatic/html/index.html`.
