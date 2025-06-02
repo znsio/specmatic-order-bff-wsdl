@@ -23,8 +23,8 @@ class OrderEndpoint {
     @ResponsePayload
     fun createOrder(@RequestPayload request: OrderRequest): OrderResponse {
         val createOrder = CreateOrder().apply {
-            productid = request.productid
-            count = request.count
+            setProductid(request.productid)
+            setCount(request.count)
         }
 
         val newOrderId = OrderAPIService(ORDER_API_WSDL).orderAPIPort.createOrder(createOrder)
