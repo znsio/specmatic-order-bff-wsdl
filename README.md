@@ -43,10 +43,10 @@
             | 4. Response (SOAP)                |                                   |
             +<----------------------------------+                                   |
             |                          
-            |<-------------------+
+            |--------------------+
             | 5. Assert response |
             | against WSDL spec  |
-            +--------------------+
+            +<-------------------+
 ```
 
 ## Running Contract Test and Mock Programmatically
