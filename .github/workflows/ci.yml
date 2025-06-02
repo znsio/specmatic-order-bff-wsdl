@@ -33,11 +33,5 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./gradlew
       
-    - name: Generate WSDL code
-      run: ./gradlew wsdl2java --no-daemon
-      
-    - name: Build with Gradle
-      run: ./gradlew build --no-daemon
-      
-    - name: Run tests
-      run: ./gradlew test --no-daemon
+    - name: Build and test
+      run: ./gradlew clean test --no-daemon
