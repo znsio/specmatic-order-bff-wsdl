@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.oxm.jaxb.Jaxb2Marshaller
 import org.springframework.ws.config.annotation.EnableWs
 import org.springframework.ws.config.annotation.WsConfigurerAdapter
+import org.springframework.ws.server.EndpointInterceptor
+import org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor
 import org.springframework.ws.transport.http.MessageDispatcherServlet
 
 
@@ -25,10 +27,14 @@ class WebServiceConfig : WsConfigurerAdapter() {
     fun marshaller(): Jaxb2Marshaller {
         val marshaller = Jaxb2Marshaller()
         marshaller.setContextPath("com.example.orders")
-        // Configure the marshaller to handle namespace-less elements
-        val properties = mutableMapOf<String, Any>()
-        properties["com.sun.xml.bind.defaultNamespaceRemap"] = "http://www.example.com/orders"
-        marshaller.setMarshallerProperties(properties)
         return marshaller
+    }
+
+    override fun addInterceptors(interceptors: MutableList<EndpointInterceptor>) {
+        // Add logging to help debug SOAP requests
+        val loggingInterceptor = PayloadLoggingInterceptor()
+        loggingInterceptor.setLogRequest(true)
+        loggingInterceptor.setLogResponse(true)
+        interceptors.add(loggingInterceptor)
     }
 }

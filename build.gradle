@@ -32,16 +32,6 @@ wsdl2java {
     verbose = true
 }
 
-// Add task to fix namespace issues in generated JAXB classes
-task fixNamespaces(type: Exec) {
-    dependsOn ':wsdl2java'
-    commandLine 'bash', 'fix-namespaces.sh'
-    workingDir project.projectDir
-}
-
-// Make sure compileJava depends on the fix
-compileJava.dependsOn fixNamespaces
-
 tasks.withType(KotlinCompile).configureEach {
     kotlinOptions {
         jvmTarget = "17"

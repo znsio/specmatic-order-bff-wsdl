@@ -6,7 +6,7 @@
     targetNamespace="http://www.example.com/orders"
 >
     <wsdl:types>
-        <xsd:schema targetNamespace="http://www.example.com/orders">
+        <xsd:schema targetNamespace="http://www.example.com/orders" elementFormDefault="qualified">
             <xsd:element name="OrderRequest">
                 <xsd:complexType>
                     <xsd:sequence>
