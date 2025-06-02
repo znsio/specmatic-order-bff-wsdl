@@ -87,20 +87,24 @@ Now we can verify if the stub server is running
 And you should get a response like this:
 
 ```xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soapenv:Header/>
-    <soapenv:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
         <OrderId>
-            <id>773</id>
+            <id>10</id>
         </OrderId>
-    </soapenv:Body>
-</soapenv:Envelope>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
-Alternatively, you can also run the same WSDL spec as a test against the mock server.
+As you can notice, id `10` is returned only when the `productid` is `123` and `count` is `1`. This response is based on example file [`create_order.json`](wsdls/order_api_examples/create_order.json).
+Please refer to documentation for format of the [example file](https://docs.specmatic.io/documentation/soap.html#examples-as-mock-data).
+
+You can also run the same WSDL spec as a test against the mock server.
 
 ```shell
 docker run --net host -v "$(pwd):/usr/src/app" znsio/specmatic test "./wsdls/order_api.wsdl" --port 8090
 ```
 
 The HTML API Coverage Report will be available at `build/reports/specmatic/html/index.html`.
+
