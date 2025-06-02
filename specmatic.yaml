@@ -1,10 +1,6 @@
-sources:
-  - type: filesystem
+version: 2
+contracts:
+  - provides:
+      - "wsdls/product_bff_search.wsdl"
     consumes:
-      - wsdls/order_api.wsdl
-    provides:
-      - wsdls/product_bff_search.wsdl
-
-test:
-  resiliencyTests:
-    enable: all
+      - "wsdls/order_api.wsdl"
