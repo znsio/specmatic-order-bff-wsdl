@@ -71,7 +71,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.glassfish.hk2/osgi-resource-locator
     implementation group: 'org.glassfish.hk2', name: 'osgi-resource-locator', version: '2.4.0'
 
-    implementation 'com.sun.xml.ws:jaxws-ri:4.0.1'
+    implementation 'com.sun.xml.ws:jaxws-ri:4.0.3'
 }
 
 sourceSets {
